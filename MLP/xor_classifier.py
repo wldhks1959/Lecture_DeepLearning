@@ -10,10 +10,9 @@ def xor_classifier_example():
     xor_labels = tf.cast(xor_labels, tf.float32)
 
     batch_size = 1
-    epochs = 1500
+    epochs = 3000
 
-    # mlp_classifier = MLP(hidden_layer_conf=[4], num_output_nodes=1) # origin
-    mlp_classifier = MLP(hidden_layer_conf=[8, 4], num_output_nodes=1) # 동민 개선
+    mlp_classifier = MLP(hidden_layer_conf=[4], num_output_nodes=1) # origin
     # mlp_classifier = MLP(hidden_layer_conf=None, num_output_nodes=1) # 잘못 나올 경우
     mlp_classifier.build_model()
     mlp_classifier.fit(x=input_data, y=xor_labels, batch_size=batch_size, epochs=epochs)
