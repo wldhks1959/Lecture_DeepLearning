@@ -1,7 +1,7 @@
 import tensorflow as tf 
 import matplotlib.pyplot as plt 
 
-# from ImageClassfier import ImageClassifier
+from ImageClassifier import ImageClassifier_MLP
 
 def run_classifier():
     fashion_mnist = tf.keras.datasets.fashion_mnist
@@ -13,7 +13,6 @@ def run_classifier():
     print("Test data shape"); print(test_images.shape) 
     print("Test data labels"); print(test_labels)
 
-    ##### def run_classifier() 내용 이어서.
     plt.figure()
     plt.imshow(train_images[0])
     plt.colorbar()
@@ -34,6 +33,8 @@ def run_classifier():
     plt.show()
 
     ### classifier train and predcit - begin
+    predicted_labels = ImageClassifier_MLP.predict(test_images)
+    predicted_labels = tf.math.argmax(input=predicted_labels, axis=1)
 
     ### classifier train and predcit - end
 if __name__ == "__main__":
